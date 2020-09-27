@@ -4,24 +4,27 @@ namespace Employee_Wage_Computation
 {
     class Program
     {
-            static void Main(string[] args)
-            {
-                Console.WriteLine("Welcome to Employee Wage Computation Program");
-                Console.WriteLine(Attendance());
-            }
-
-
-            static string Attendance()
-            {
-                int isPresent = 1;
-                Random rand = new Random();
-                int empCheck = rand.Next(0, 2);
-                //1 => present and 0 => absent
-                if (empCheck == isPresent)
-                    return "Employee is present";
-                else
-                    return "Employee is absent";
-            }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Employee Wage Computation Program");
+            Console.WriteLine("Employee wage : " + EmployeeDailyWageComputation());
         }
+        static int EmployeeDailyWageComputation()
+        {
+            int isPresent = 1;
+            Random random = new Random();
+            int empCheck = random.Next(0, 2);
+            int workHrs = 0;
+            int empWage = 0;
+            int wagePerHour = 20;
+            if (empCheck == isPresent)
+            {
+                workHrs = 8;
+            }
+            empWage = workHrs * wagePerHour;//Computation of daily wage: 
+            return empWage;
+        }
+
     }
+}
     
