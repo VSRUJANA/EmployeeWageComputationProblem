@@ -7,34 +7,30 @@ namespace Employee_Wage_Computation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
-            Console.WriteLine("Employee monthly wage: " + EmployeeMonthlyWageComputation());
+            Console.WriteLine("Employee wage: " + EmployeeWageWithCondition());
         }
-        static int EmployeeMonthlyWageComputation()
+        static int EmployeeWageWithCondition()
         {
-            int isFullTime = 1;
-            int wagePerHour = 20;
-            int workHrs = 0;
-            int WorkingDays = 0;
-            int empCheck = 0;
+            int empMonthlyWage = 0, wagePerHour = 20, totalWorkHrs = 0, workDays = 0;
+            int isPresent = 1, isFullTime = 1;
             Random random = new Random();
-            for (int day = 0; day < 20; day++)
-            {
-                empCheck = random.Next(0, 2);
-                WorkingDays = WorkingDays + empCheck;
-            }
-            Console.WriteLine("No. of days worked in the month :" + WorkingDays);
             int empType = random.Next(0, 2);
-            if (empType == isFullTime)
+            int hrsPerDay = (empType == isFullTime) ? 8 : 4;
+            for (int i = 0; i < 30; i++)
             {
-                workHrs = 8;
-                Console.WriteLine("Emp Type : Full time Employee");
+                int empCheck = random.Next(0, 2);
+                if (totalWorkHrs > 100 || workDays > 20)
+                    break;
+                if (empCheck == isPresent)
+                {
+                    totalWorkHrs += hrsPerDay;
+                    workDays++;
+                }
+
             }
-            else
-            {
-                workHrs = 4;
-                Console.WriteLine("Emp Type : Part time Employee");
-            }
-            return workHrs * WorkingDays * wagePerHour;
+            empMonthlyWage = wagePerHour * totalWorkHrs;
+            Console.WriteLine($"Employee worked for {totalWorkHrs} hours OR {workDays} days ");
+            return empMonthlyWage;
         }
     }
 }
