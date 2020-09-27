@@ -7,21 +7,25 @@ namespace Employee_Wage_Computation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
-            Console.WriteLine("Employee wage : " + EmployeeDailyWageComputation());
+            Console.WriteLine("Employee wage: " + EmpDailyWageForFullAndPartTime());
         }
-        static int EmployeeDailyWageComputation()
+        static int EmpDailyWageForFullAndPartTime()
         {
-            int isPresent = 1;
-            Random random = new Random();
-            int empCheck = random.Next(0, 2);
             int workHrs = 0;
             int empWage = 0;
             int wagePerHour = 20;
-            if (empCheck == isPresent)
+            int isFullTime = 1;
+            Random rand = new Random();
+            int empCheck = rand.Next(0, 2);
+            if (empCheck == isFullTime)
             {
                 workHrs = 8;
             }
-            empWage = workHrs * wagePerHour;//Computation of daily wage: 
+            else
+            {
+                workHrs = 4;  //Assuming part time hours as 4
+            }
+            empWage = workHrs * wagePerHour;
             return empWage;
         }
 
