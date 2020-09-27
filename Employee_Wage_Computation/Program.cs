@@ -29,7 +29,7 @@ namespace Employee_Wage_Computation
 
             }
             empMonthlyWage = wagePerHour * totalWorkHrs;
-            Console.WriteLine($"Employee worked for {totalWorkHrs} hours OR {workDays} days ");
+            Console.WriteLine($"Employee worked for {totalWorkHrs} hours or {workDays} days ");
             return empMonthlyWage;
         }
     }
